@@ -13,7 +13,13 @@ switch ($_GET['action']) {
         }
         else echo '[Error]用户名或密码错误';
 
-//    case '' :
+    case 'getip' :
+        if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            echo explode(',', $_SERVER['HTTP_X_FORWARDED_FOR'])[0];
+        } else {
+            echo $_SERVER['REMOTE_ADDR'];
+        }
+
     default :
         echo '[Error]action不存在';
 
