@@ -30,7 +30,7 @@
         }
 
         .label {
-            width: 100px;
+            width: 120px;
             font-weight: bold;
         }
 
@@ -67,7 +67,7 @@
     </div>
 
     <div class="user-info">
-        <div class="label">客户端最后连接时间:</div>
+        <div class="label">解析更新时间:</div>
         <div class="value" id="connect_time"></div>
     </div>
 
