@@ -21,7 +21,7 @@ function dns_modify($action, $username, $value) {
             $param["SubDomain"] = $prefix;
             break;
         case 'modify' :
-            require 'modules/mysql.php';
+            require_once 'modules/mysql.php';
             $param["Action"] = 'ModifyRecord';
             $param['RecordId'] = mysql_exec("SELECT recordid FROM user WHERE username = '$username'")['recordid'];
             $param["RecordType"] = 'A';
@@ -31,7 +31,7 @@ function dns_modify($action, $username, $value) {
             break;
 
         case 'del' :
-            require 'modules/mysql.php';
+            require_once 'modules/mysql.php';
             $param['RecordId'] = mysql_exec("SELECT recordid FROM user WHERE username = '$username'")['recordid'];
             $param["Action"] = 'DeleteRecord';
             break;
