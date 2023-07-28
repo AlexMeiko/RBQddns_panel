@@ -1,4 +1,7 @@
 <?php
+header('Cache-Control:no-cache,must-revalidate');
+header('Pragma:no-cache');
+header("Expires:0");
 session_start();
 $username = isset($_SESSION['user']) ? $_SESSION['user'] : "";
 $err = isset($_GET["err"]) ? $_GET["err"] : "";
@@ -101,7 +104,15 @@ switch ($_SERVER['PATH_INFO']) {
     case '/Dashboard' :
         if (!empty($username)) {
             require 'config/main.php';
+            require 'modules/mysql.php';
+            require 'modules/http.php';
+            $sql = mysql_exec("SELECT status,connect_time FROM user WHERE username = '$username'");
+            $userstatus = $sql['status'];
+            $connect_time = $sql['connect_time'];
+            $ddns_domain = check_ddns_name($username);
+            $ip = http('GET', 'https://httpdns.api.mrsheep.cn/?type=a&domain=' . $ddns_domain, '');
             require 'pages/dashboard.php';
+
         }
         else {
             echo '<h1>您还没有登录哦！请先<a href="Login">登录</a>后再"食"用</h1>';
