@@ -6,11 +6,12 @@ switch ($_GET['action']) {
         $username = $_GET['username'];
         $ip = $_GET['ip'];
         $password = $_GET['password'];
-        if (empty($ip))
-        {
-            echo '[Error]ip参数为空';
+        $res = check_ip($ip);
+        if($res != 0) {
+            echo $res;
             return;
         }
+
         if ($password == mysql_exec("SELECT password from user WHERE username = '$username'")['password']) {
             $message = dns_modify('modify', $username, $ip);
             $time = date("Y-m-d H:i:s");
