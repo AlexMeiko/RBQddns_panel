@@ -119,8 +119,9 @@ switch ($_SERVER['PATH_INFO']) {
         }
         break;
 
-    case 'API' :
+    case '/API' :
         include 'api.php';
+        break;
 
     default :
         include 'pages/404.html';
