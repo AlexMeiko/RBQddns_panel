@@ -67,12 +67,10 @@
     </div>
 
     <div class="user-info">
-        <div class="label">解析更新时间:</div>
+        <div class="label">上次连接时间:</div>
         <div class="value" id="connect_time"></div>
     </div>
-
-
-
+    <center><a href="./SignOut" ><botton>退出登录</botton></a></center>
 </div>
 
 

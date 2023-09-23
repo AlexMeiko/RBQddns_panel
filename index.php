@@ -123,6 +123,10 @@ switch ($_SERVER['PATH_INFO']) {
         include 'api.php';
         break;
 
+    case '/SignOut':
+        include 'pages/signout.php';
+        break;
+
     default :
         include 'pages/404.html';
 }

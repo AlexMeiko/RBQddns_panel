@@ -74,7 +74,7 @@ switch ($_GET['action']) {
         echo $message['message'];
         break;
 
-    case 'destroy' :
+ /**   case 'destroy' :
         require_once 'modules/dns/dnspod.php';
         $username = $_GET['username'];
         $password = $_GET['password'];
@@ -88,7 +88,7 @@ switch ($_GET['action']) {
             echo '[Error]账号或密码不正确';
             return;
         }
-
+**/
     default :
         echo '[Error]action不存在';
 
